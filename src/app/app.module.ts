@@ -11,8 +11,6 @@ import { MatCardModule, MatButtonModule, MatTooltipModule, MatFormFieldModule } 
 import { PopoverComponent } from './pages/popover/popover.component';
 
 import { MaterialExtendModule } from './material-extend/material-extend.module';
-import { UtilComponent } from './pages/util/util.component';
-import { NgxDataGridModule } from './ngx-data-grid/ngx-data-grid.module';
 import { TimepickerComponent } from './pages/timepicker/timepicker.component';
 
 @NgModule({
@@ -20,7 +18,6 @@ import { TimepickerComponent } from './pages/timepicker/timepicker.component';
     AppComponent,
     TestPopoverComponent,
     PopoverComponent,
-    UtilComponent,
     TimepickerComponent
   ],
   entryComponents: [
@@ -35,8 +32,7 @@ import { TimepickerComponent } from './pages/timepicker/timepicker.component';
     MatButtonModule,
     MatTooltipModule,
     // -----------------------------------------------------------
-    MaterialExtendModule,
-    NgxDataGridModule
+    MaterialExtendModule
   ],
   providers: [],
   bootstrap: [AppComponent]
