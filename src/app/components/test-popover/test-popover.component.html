@@ -1,0 +1,6 @@
+<mat-card [class.clicked]="clicked">
+  [{{data.index}}] This is a popover example, clicked={{clicked}}
+  <p *ngIf="clicked">
+    key: {{ data.extra.key }}
+  </p>
+</mat-card>

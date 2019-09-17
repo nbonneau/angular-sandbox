@@ -1,0 +1,36 @@
+<h2>Popover</h2>
+<h3>Ungrouped Popover</h3>
+<div>
+    <button #up0 mat-raised-button [matPopover]="popoverComponent" [matPopoverData]="popoverData2">Simple
+        popover</button>
+    <button #up1 mat-raised-button [color]="up1.clicked ? 'primary' : 'default'" (popoverClicked)="up1.clicked = $event"
+        matPopoverClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData1">Clickable popover</button>
+    <button #up2 mat-raised-button [color]="up2.clicked ? 'primary' : 'default'" (popoverClicked)="up2.clicked = $event"
+        matPopoverSourceClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData2">Clickable source
+        popover</button>
+    <button #up3 mat-raised-button [color]="up3.clicked ? 'primary' : 'default'" (popoverClicked)="up3.clicked = $event"
+        matPopoverTargetClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData2">Clickable target
+        popover</button>
+</div>
+
+<h3>Grouped Popover</h3>
+<div matPopoverGroup>
+    <button #gp0 mat-raised-button [matPopover]="popoverComponent" [matPopoverData]="popoverData2">Simple
+        popover</button>
+    <button #gp1 mat-raised-button [color]="gp1.clicked ? 'primary' : 'default'" (popoverClicked)="gp1.clicked = $event"
+        matPopoverClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData1">Clickable popover</button>
+    <button #gp2 mat-raised-button [color]="gp2.clicked ? 'primary' : 'default'" (popoverClicked)="gp2.clicked = $event"
+        matPopoverSourceClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData2">Clickable source
+        popover</button>
+    <button #gp3 mat-raised-button [color]="gp3.clicked ? 'primary' : 'default'" (popoverClicked)="gp3.clicked = $event"
+        matPopoverTargetClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData2">Clickable target
+        popover</button>
+</div>
+
+
+<h3>Grouped Popover always show</h3>
+<div matPopoverGroup matPopoverAlwaysShow>
+    <button #g1p0 mat-raised-button [color]="g1p0.clicked ? 'primary' : 'default'" [matPopoverData]="popoverData2" (popoverClicked)="g1p0.clicked = $event" matPopoverClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData2">Popover 1</button>
+    <button #g1p1 mat-raised-button [color]="g1p1.clicked ? 'primary' : 'default'" (popoverClicked)="g1p1.clicked = $event"
+        matPopoverClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData1">Popover 2</button>
+</div>

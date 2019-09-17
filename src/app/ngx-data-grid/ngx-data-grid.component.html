@@ -1,0 +1,37 @@
+<div class="ngx-data-grid" [ngClass]="gridClass">
+  <div class="ngx-data-grid-row" sticky [ngClass]="rowClass">
+    <div class="ngx-data-grid-col" [ngStyle]="cellStyle" [ngClass]="cellClass">
+      <ng-container [ngTemplateOutlet]='actionsTemplate'></ng-container>
+    </div>
+    <div class="ngx-data-grid-col" [ngStyle]="cellStyle" [ngClass]="cellClass" *ngFor="let column of columns">
+      <ng-container [ngTemplateOutlet]='gridColumnHeaderTemplate' [ngTemplateOutletContext]='{ $implicit: column }'>
+      </ng-container>
+    </div>
+  </div>
+  <div class="ngx-data-grid-row" [ngClass]="rowClass" *ngFor="let rowColumns of data">
+    <div class="ngx-data-grid-col" [ngStyle]="cellStyle" [ngClass]="cellClass" *ngFor="let cell of rowColumns; let i = index">
+
+      <ng-container *ngIf="i === 0; else templateCell" [ngTemplateOutlet]='gridRowHeaderTemplate'
+        [ngTemplateOutletContext]='{ $implicit: cell }'>
+
+      </ng-container>
+
+      <ng-template #templateCell>
+
+        <ng-container *ngIf="cell && i > 0; else templateEmpty" [ngTemplateOutlet]='cellTemplate'
+          [ngTemplateOutletContext]='{ $implicit: cell }'>
+
+        </ng-container>
+
+        <ng-template #templateEmpty>
+          <ng-container [ngTemplateOutlet]='emptyTemplate' 
+            [ngTemplateOutletContext]='{ $implicit: cell }'>
+
+          </ng-container>
+        </ng-template>
+
+      </ng-template>
+
+    </div>
+  </div>
+</div>

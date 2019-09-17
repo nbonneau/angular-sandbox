@@ -1,0 +1,24 @@
+<div appFocusoutGroup (leave)="onFocusout($event)" (enter)="onFocusin($event)"
+  *ngIf="formGroup" [formGroup]="formGroup" class="timepicker-container">
+
+  <!-- HOURS -->
+  <input type="text" appFocusoutItem appDigitOnly appFocusoutZero [appUpDownControl]="formGroup.get('hours')" [value]="formGroup.value.hours"
+    [appUpDownControlMax]="maxHours" class="timepicker-element" formControlName="hours" size="2" aria-label="hours"
+    (input)="_handleInput()" (click)="$event.target.select()" (focusIn)="onItemFocusin($event)"
+    (focusOut)="onItemFocusout($event)">
+
+  <!-- MINUTES -->
+  <span class="timepicker-spacer">:</span>
+  <input type="text" appFocusoutItem appDigitOnly appFocusoutZero [appUpDownControl]="formGroup.get('minutes')" [value]="formGroup.value.minutes"
+    [appUpDownControlMax]="maxMinutes" class="timepicker-element" formControlName="minutes" size="2"
+    aria-label="minutes" (input)="_handleInput()" (click)="$event.target.select()" (focusIn)="onItemFocusin($event)"
+    (focusOut)="onItemFocusout($event)">
+
+  <!-- SECONDS -->
+  <span *ngIf="hasSeconds()" class="timepicker-spacer">:</span>
+  <input type="text" appFocusoutItem appDigitOnly appFocusoutZero [appUpDownControl]="formGroup.get('seconds')" [value]="formGroup.value.seconds"
+    [appUpDownControlMax]="maxSeconds" *ngIf="hasSeconds()" class="timepicker-element" formControlName="seconds"
+    size="2" aria-label="seconds" (input)="_handleInput()" (click)="$event.target.select()"
+    (focusIn)="onItemFocusin($event)" (focusOut)="onItemFocusout($event)">
+
+</div>

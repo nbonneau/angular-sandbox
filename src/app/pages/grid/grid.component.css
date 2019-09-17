@@ -1,0 +1,8 @@
+.cell {
+    height: 50px;
+    border: 1px solid #ddd;
+}
+
+.clicked {
+    background: #ddd;
+}

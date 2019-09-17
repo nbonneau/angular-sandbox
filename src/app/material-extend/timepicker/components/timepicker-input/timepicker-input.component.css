@@ -1,0 +1,21 @@
+.timepicker-container {
+    display: flex;
+}
+
+.timepicker-element {
+    border: none;
+    background: none;
+    padding: 0;
+    outline: none;
+    font: inherit;
+    text-align: center;
+}
+
+.timepicker-spacer {
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+:host.timepicker-floating .timepicker-spacer {
+    opacity: 1;
+}

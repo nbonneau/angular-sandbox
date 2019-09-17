@@ -1,0 +1,28 @@
+<ng-container [ngTemplateOutlet]="timepickerFrom" *ngIf="timepickerFrom">
+    <ng-container *ngTemplateOutlet="timepickerFromTemplate"></ng-container>
+</ng-container>
+<ng-container *ngIf="!timepickerFrom" [ngTemplateOutlet]="timepickerFromTemplate"></ng-container>
+
+<ng-container [ngTemplateOutlet]="timepickerTo" *ngIf="timepickerTo">
+    <ng-container *ngTemplateOutlet="timepickerToTemplate"></ng-container>
+</ng-container>
+<ng-container *ngIf="!timepickerTo" [ngTemplateOutlet]="timepickerToTemplate"></ng-container>
+
+<ng-template #timepickerFromTemplate>
+    <mat-form-field [ngClass]="formFieldClass">
+        <mat-timepicker-input [maxHours]="maxHours" [maxMinutes]="maxMinutes" [maxSeconds]="maxSeconds"
+            [hours]="from.hours" [minutes]="from.minutes" [seconds]="from.seconds" [placeholder]="from.placeholder"
+            (focusOut)="timepickerFocusout('from', $event)" (focusIn)="timepickerFocusin('from')"
+            (itemFocusOut)="itemFocusOut('from', $event)" (itemFocusIn)="itemFocusIn($event)">
+        </mat-timepicker-input>
+    </mat-form-field>
+</ng-template>
+<ng-template #timepickerToTemplate>
+    <mat-form-field [ngClass]="formFieldClass">
+        <mat-timepicker-input [maxHours]="maxHours" [maxMinutes]="maxMinutes" [maxSeconds]="maxSeconds"
+            [hours]="to.hours" [minutes]="to.minutes" [seconds]="to.seconds" [placeholder]="to.placeholder"
+            (focusOut)="timepickerFocusout('to', $event)" (focusIn)="timepickerFocusin('to')"
+            (itemFocusOut)="itemFocusOut('to', $event)" (itemFocusIn)="itemFocusIn($event)">
+        </mat-timepicker-input>
+    </mat-form-field>
+</ng-template>
