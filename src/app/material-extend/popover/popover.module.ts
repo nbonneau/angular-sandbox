@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PopoverDirective } from './popover.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material';
-import { PopoverComponent } from './popover.component';
+import { MaterialPopoverComponent } from './popover.component';
 import { PopoverGroupDirective } from './popover-group.directive';
 
 @NgModule({
@@ -14,16 +14,16 @@ import { PopoverGroupDirective } from './popover-group.directive';
    ],
    exports: [
       PopoverDirective,
-      PopoverComponent,
+      MaterialPopoverComponent,
       PopoverGroupDirective
    ],
    declarations: [
       PopoverDirective,
-      PopoverComponent,
+      MaterialPopoverComponent,
       PopoverGroupDirective
    ],
    entryComponents: [
-      PopoverComponent
+      MaterialPopoverComponent
    ]
 })
 export class MaterialPopoverModule { }

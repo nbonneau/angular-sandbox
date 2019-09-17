@@ -4,7 +4,7 @@ import { MatTooltip, MAT_TOOLTIP_SCROLL_STRATEGY, MAT_TOOLTIP_DEFAULT_OPTIONS, M
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 
 import { takeUntil } from 'rxjs/operators';
-import { PopoverComponent, PopoverData, POPOVER_DATA } from './popover.component';
+import { MaterialPopoverComponent, PopoverData, POPOVER_DATA } from './popover.component';
 import { Overlay, ScrollDispatcher, OverlayRef } from '@angular/cdk/overlay';
 import { Platform } from '@angular/cdk/platform';
 import { AriaDescriber, FocusMonitor } from '@angular/cdk/a11y';
@@ -25,7 +25,7 @@ export class PopoverDirective extends MatTooltip implements OnInit {
   index: number;
 
   _overlayRef: OverlayRef;
-  _tooltipInstance: PopoverComponent;
+  _tooltipInstance: MaterialPopoverComponent;
 
   protected _disabledHover: boolean;
   protected _component: any;
@@ -227,9 +227,9 @@ export class PopoverDirective extends MatTooltip implements OnInit {
 
       (<any>this)._detach();
 
-      (<any>this)._portal = new ComponentPortal(PopoverComponent, (<any>this)._viewContainerRef, injector);
+      (<any>this)._portal = new ComponentPortal(MaterialPopoverComponent, (<any>this)._viewContainerRef, injector);
 
-      this._tooltipInstance = this._overlayRef.attach((<any>this)._portal).instance as PopoverComponent;
+      this._tooltipInstance = this._overlayRef.attach((<any>this)._portal).instance as MaterialPopoverComponent;
       this._tooltipInstance._grouped = !!this._popoverGroupDirective;
 
       this._tooltipInstance.afterHidden().pipe(takeUntil((<any>this)._destroyed)).subscribe(() => (<any>this)._detach());

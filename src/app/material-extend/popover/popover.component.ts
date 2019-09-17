@@ -62,7 +62,7 @@ export interface PopoverConfig {
     'aria-hidden': 'true',
   }
 })
-export class PopoverComponent extends TooltipComponent implements AfterViewInit {
+export class MaterialPopoverComponent extends TooltipComponent implements AfterViewInit {
 
   hovered: boolean;
 
