@@ -1,5 +1,7 @@
+// tslint:disable-next-line: max-line-length
 import { Directive, Input, Inject, Optional, ElementRef, ViewContainerRef, NgZone, Injector, HostListener, Output, EventEmitter, OnInit } from '@angular/core';
 
+// tslint:disable-next-line: max-line-length
 import { MatTooltip, MAT_TOOLTIP_SCROLL_STRATEGY, MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions, TooltipPosition } from '@angular/material';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 
@@ -12,7 +14,9 @@ import { Directionality } from '@angular/cdk/bidi';
 import { PopoverGroupDirective } from './popover-group.directive';
 
 @Directive({
+  // tslint:disable-next-line: directive-selector
   selector: '[matPopover]',
+  // tslint:disable-next-line: use-host-property-decorator
   host: {
     '(longpress)': 'show()',
     '(keydown)': '_handleKeydown($event)',
@@ -30,12 +34,14 @@ export class PopoverDirective extends MatTooltip implements OnInit {
   protected _disabledHover: boolean;
   protected _component: any;
   protected _margin: string;
-  protected _sourceClickable: boolean = false;
-  protected _targetClickable: boolean = false;
+  protected _sourceClickable = false;
+  protected _targetClickable = false;
   protected _config: PopoverData = { sourceClickable: false, targetClickable: false, data: {}, margin: '' } as any;
   protected _data: any;
 
+  // tslint:disable-next-line: no-input-rename
   @Input('matPopoverShowDelay') showDelay = (<any>this)._defaultOptions.showDelay;
+  // tslint:disable-next-line: no-input-rename
   @Input('matPopoverHideDelay') hideDelay = (<any>this)._defaultOptions.hideDelay;
 
   @Input('matPopoverClass')
@@ -140,8 +146,11 @@ export class PopoverDirective extends MatTooltip implements OnInit {
   get clicked(): boolean { return this._tooltipInstance && this._tooltipInstance.clicked; }
   get grouped(): boolean { return this._popoverGroupDirective && this._popoverGroupDirective.grouped; }
 
+  // tslint:disable-next-line: no-output-rename
   @Output('popoverClicked') popoverClicked: EventEmitter<boolean> = new EventEmitter();
+  // tslint:disable-next-line: no-output-rename
   @Output('popoverRefreshed') popoverRefreshed: EventEmitter<any> = new EventEmitter();
+  // tslint:disable-next-line: no-output-rename
   @Output('popoverChanged') popoverChanged: EventEmitter<any> = new EventEmitter();
 
   constructor(
@@ -159,6 +168,7 @@ export class PopoverDirective extends MatTooltip implements OnInit {
     @Optional() @Inject(MAT_TOOLTIP_DEFAULT_OPTIONS) _defaultOptions: MatTooltipDefaultOptions,
     @Optional() @Inject(PopoverGroupDirective) protected _popoverGroupDirective: PopoverGroupDirective
   ) {
+    // tslint:disable-next-line: max-line-length
     super(_overlay, _elementRef, _scrollDispatcher, _viewContainerRef, _ngZone, _platform, _ariaDescriber, _focusMonitor, _scrollStrategy, _dir, _defaultOptions);
   }
 
@@ -211,8 +221,10 @@ export class PopoverDirective extends MatTooltip implements OnInit {
   }
 
   show(delay: number = this.showDelay) {
+    // tslint:disable-next-line: max-line-length
     if (!this._popoverGroupDirective || !this._popoverGroupDirective.grouped || !this._popoverGroupDirective.hasClickedPopover() || this._popoverGroupDirective.popoverAlwaysShow) {
 
+      // tslint:disable-next-line: no-non-null-assertion
       if (this.disabled || (this._isTooltipVisible() && !this._tooltipInstance!._showTimeoutId && !this._tooltipInstance!._hideTimeoutId)) {
         return;
       }
@@ -237,6 +249,7 @@ export class PopoverDirective extends MatTooltip implements OnInit {
       (<any>this)._setTooltipClass((<any>this)._tooltipClass);
       (<any>this)._updateTooltipMessage();
 
+      // tslint:disable-next-line: no-non-null-assertion
       this._tooltipInstance!.show(delay);
     }
   }

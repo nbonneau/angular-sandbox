@@ -12,7 +12,6 @@ import { PopoverComponent } from './pages/popover/popover.component';
 
 import { MaterialExtendModule } from './material-extend/material-extend.module';
 import { UtilComponent } from './pages/util/util.component';
-import { GridComponent } from './pages/grid/grid.component';
 import { NgxDataGridModule } from './ngx-data-grid/ngx-data-grid.module';
 import { TimepickerComponent } from './pages/timepicker/timepicker.component';
 
@@ -22,7 +21,6 @@ import { TimepickerComponent } from './pages/timepicker/timepicker.component';
     TestPopoverComponent,
     PopoverComponent,
     UtilComponent,
-    GridComponent,
     TimepickerComponent
   ],
   entryComponents: [

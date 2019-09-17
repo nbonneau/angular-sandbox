@@ -20,8 +20,8 @@
     <button #gp1 mat-raised-button [color]="gp1.clicked ? 'primary' : 'default'" (popoverClicked)="gp1.clicked = $event"
         matPopoverClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData1">Clickable popover</button>
     <button #gp2 mat-raised-button [color]="gp2.clicked ? 'primary' : 'default'" (popoverClicked)="gp2.clicked = $event"
-        matPopoverSourceClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData2">Clickable source
-        popover</button>
+        matPopoverSourceClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData2" matPopoverDisableHover>Clickable source
+        popover (disable hover)</button>
     <button #gp3 mat-raised-button [color]="gp3.clicked ? 'primary' : 'default'" (popoverClicked)="gp3.clicked = $event"
         matPopoverTargetClickable [matPopover]="popoverComponent" [matPopoverData]="popoverData2">Clickable target
         popover</button>
